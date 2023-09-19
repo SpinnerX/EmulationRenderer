@@ -13,12 +13,13 @@ include_directories(
     ${PROJECT_NAME}/include/${PROJECT_NAME}
 )
 
-set(
-    SRC
+target_sources(
+    em
+    PRIVATE
     "EmulationRenderer/src/EmulationRenderer/core/EmulationRenderer.cpp"
 )
 
-add_library(EmulationRenderer ${SRC})
+add_library(em)
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${PROJECT_SOURCE_DIR}")
 
