@@ -31,7 +31,12 @@ add_library(
 )
 add_library(EmRen::EmRen ALIAS ${PROJECT_NAME})
 
-target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(
+    ${PROJECT_NAME}
+    INTERFACE
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/EmulationRenderer/
+)
 
 # target_sources(
 #     sources_files
