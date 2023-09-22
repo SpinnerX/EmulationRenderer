@@ -13,10 +13,17 @@ project(EmulationRenderer VERSION 0.1.0 LANGUAGES C CXX)
 #     ${PROJECT_NAME}/include/${PROJECT_NAME}
 # )
 
+set(CMAKE_CXX_STANDARD 20)
+
 include_directories(
     include/${PROJECT_NAME}
 )
 
+set(
+    HEADERS
+    ${PROJECT_SOURCE_DIR}/include/EmulationRenderer/common/WindowUtils.h
+    ${PROJECT_SOURCE_DIR}/include/EmulationRenderer/core/Window.h
+)
 
 set(
     SRC
@@ -27,6 +34,7 @@ set(
 
 add_library(
     ${PROJECT_NAME}
+    ${HEADERS}
     ${SRC}
 )
 add_library(EmRen::EmRen ALIAS ${PROJECT_NAME})
@@ -70,3 +78,5 @@ target_include_directories(
 
 # install(FILES "EmulationRendererConfig.cmake" "${CMAKE_CURRENT_BINARY_DIR}/cmake/EmulationRendererConfigVersion.cmake"
 #     DESTINATION lib/cmake/EmulationRenderer)
+include(${PROJECT_SOURCE_DIR}/cmake/glfw.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/ffmpeg.cmake)
